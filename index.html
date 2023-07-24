@@ -10,7 +10,7 @@
     <header>
         <h1>Seensus Project</h1>
 
-        <div class="d-flex container pt-4 text-center">
+        <div class="d-flex container-xxl pt-4 text-center">
             <a href="#" class=""><img src="assets/logo.png" alt="Logo do site"></a>
             <form class="d-flex container align-items-center" role="search">
                 <input class="input-buscar form-control" type="search" placeholder="Buscar Lojas" aria-label="Search">
@@ -19,7 +19,7 @@
         </div>
         
           
-        <nav class="container text-center mt-3">
+        <nav class="container-xxl text-center mt-3">
             <ul class="row">
                 <li class="nav-item dropdown col">
                     <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Departamentos</a>
@@ -107,13 +107,33 @@
     </header>
 
     <main>
-        <div class="container">
-
+        <div class="container-xxl">
+            <div id="carouselExampleRide" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active img-carousel" data-bs-interval="4000">
+                        <img src="assets/banner1moda.png" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item img-carousel" data-bs-interval="4000">
+                        <img src="assets/bannerpromocao.png" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item img-carousel" data-bs-interval="4000">
+                        <img src="assets/bannerpromocao2.png" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleRide" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
         </div>
     </main>
 
     <footer>
-        <div class="container">
+        <div class="container-xxl">
             <div class="row pt-footer text-center  px-5">
                 <div class="descricao-rodape col">
                     <div class="h6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque error, quae eligendi ipsa est beatae laboriosam possimus eos, maiores nisi ducimus accusantium, non assumenda ullam? Maxime voluptate magnam minima consequuntur.</div>
