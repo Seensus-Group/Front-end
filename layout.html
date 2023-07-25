@@ -4,25 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
     <title>Seensus</title>
 </head>
 <body>
     <header>
         <h1>Seensus Project</h1>
-
-        <div class="d-flex container-xxl pt-4 text-center">
+        <!-- Início do nav -->
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-xxl">
             <a href="index.html" class=""><img src="assets/logo.png" alt="Logo do site"></a>
-            <form class="d-flex container align-items-center" role="search">
-                <input class="input-buscar form-control" type="search" placeholder="Buscar Lojas" aria-label="Search">
-                <button class="btn btn-primary btn-buscar" type="submit"><i class="bi bi-search"></i></button>
-            </form>
-        </div>
-        
-          
-        <nav class="container-xxl text-center mt-3">
-            <ul class="row">
-                <li class="nav-item dropdown col">
-                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Departamentos</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Departamentos
+                    </a>
                     <ul class="dropdown-menu">
                         <li>
                             <a class="dropdown-item" href="#">
@@ -97,13 +100,25 @@
                             </a>
                         </li>
                     </ul>
-                </li> 
-                <li class="nav-item col"><a href="sobre-nos.html">Sobre nós</a></li>
-                <li class="nav-item col"><a href="contato.html">Contato</a></li>
-                <li class="nav-item col"><a href="#">Anuncie aqui</a></li>
-                <li class="nav-item col "><a href="#">Login</a></li>
-            </ul>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="sobre-nos.html">Sobre Nós</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="contato.html">Contato</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="contato.html">Área exclusiva</a>
+                  </li>
+                </ul>
+                <form class="d-flex" role="search">
+                  <input class="form-control input-buscar me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-success btn-buscar" type="submit"><i class="bi bi-search"></i></button>
+                </form>
+              </div>
+            </div>
         </nav>
+        <!-- Fim do nav -->
     </header>
 
     <main>
@@ -162,7 +177,7 @@
 
             <div class="copy-footer pt-2 d-flex justify-content-between">
                 <div>&copy; Copyright 2023 - Seensus Project</div>
-                <div>Powered by <a href="#">Seensus Group Inc.</a></div>
+                <div>Powered by <a href="https://github.com/Seensus-Group/">Seensus Group Inc.</a></div>
             </div>
         </div>
     </footer>
