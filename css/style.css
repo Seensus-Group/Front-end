@@ -9,10 +9,6 @@ h1 {
     display: none;
 }
 
-header {
-    height: 150px;
-    background-color: #E8E4DB;
-}
  header ul {
     list-style: none;
     display: flex;
@@ -59,7 +55,7 @@ header a:hover {
     transition: 0.5s all;
 }
 footer {
-    background-color: #E8E4DB;
+    background-color: #fff;
 }
 .pt-footer{
     padding-top: 60px;
