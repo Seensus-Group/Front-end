@@ -1,3 +1,11 @@
+:root{
+    --color-branco: #fff;
+    --color-azul-escuro: #0511F2;
+    --colo-azul-claro: #5079F2;
+    --color-fundo: #0000009e;
+    --color-preto: #000000;
+}
+
 * {
     margin: 0px;
     padding: 0px;
@@ -5,11 +13,12 @@
     font-family: 'QuickSand', Arial, Helvetica, sans-serif;
 }
 
-h1 {
+#h1 {
     display: none;
 }
 
- header ul {
+/* Inicio do header */
+header ul {
     list-style: none;
     display: flex;
     text-align: center;
@@ -21,23 +30,164 @@ header a {
 header img {
     width: 60px;
 }
-.input-buscar {
-    width: 100%;
-    height: 50px;
-}
-.btn-buscar {
-    position: relative;
-    margin-left: -12px;
-    width: 150px;
-    height: 50px;
-}
+
 .dropdown:hover .dropdown-menu {
     display: block;
 }
+/* Fim do header */
+
+/* Inicio do main */
 main {
     background-color: #f1f1f1;
 }
+/* Fim do main */
 
+/* Inicio do login */
+#shadow {
+    background-color: var(--color-fundo);   
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: -100;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease;
+}
+
+#shadow #login_form{
+    background-color: var(--color-branco);
+    display: flex;
+    flex-direction: column;
+    padding: 30px 40px;
+    border-radius: 10px;
+    gap: 30px;
+    box-shadow: 5px 5px 5px var(--color-fundo);
+}
+
+#cima_form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+#cima_form a{
+    color: var(--color-preto);
+    text-decoration: none;  
+}
+
+#cima_form h1{
+    font-size: 40px;
+    position: relative;
+}
+
+#rede-social img{
+    width: 35px;
+}
+
+#rede-social img:hover{
+    transform   : scale(1.2);
+}
+
+#rede-social{
+    display: flex;
+    justify-content: space-around;
+}
+
+#inputs{
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input label{
+    font-size: 20px;
+    color: var(--color-preto);
+}
+
+.input-login{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 3px;
+    cursor: text;
+    border-bottom: 1px solid var(--color-azul-escuro);
+}
+
+.input-login i{
+    font-size: 20px;
+    color: var(--color-preto);
+}
+
+.input-login input{
+    border: none;
+    width: 70%;
+    background-color: transparent;
+    font-size: 18px;
+    padding: 0px 5px;
+}
+
+.input-login input:focus{
+    outline: none;
+}
+
+/* Inicio do Botão do login */
+
+#shadow .custom-btn {
+    height: 40px;
+    color: var(--color-branco);
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    z-index: 0;
+}
+  
+#shadow .btn-15 {
+    background: #1f1f1f;
+    border: none;
+    z-index: 0;
+    width: 60%;
+    height: 45px;
+}
+
+#shadow .btn-15:after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 100%;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    background-color: var(--color-azul-escuro);
+    border-radius: 5px;
+    transition: all 0.6s ease;
+}
+
+#shadow .btn-15:hover {
+    color: #fff;
+}
+
+#shadow .btn-15:hover:after {
+    left: 0;
+    width: 100%;
+}
+
+/* Fim do Botão do login */
+/* Fim do login */
+
+
+/* Inicio do footer */
 footer {
     background-color: #fff;
 }
@@ -64,6 +214,8 @@ footer a:hover {
     color: dodgerblue;
     transition: 0.5s all;
 }
+/* Fim do footer */
+
 
 @media screen and (min-width: 0px) and (max-width: 576px) {
     .info-mobile {
