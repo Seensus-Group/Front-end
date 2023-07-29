@@ -35,7 +35,7 @@ header img {
     display: block;
 }
 main {
-    background-color: #aaaaaa;
+    background-color: #f1f1f1;
 }
 
 footer {
@@ -63,4 +63,10 @@ footer ul {
 footer a:hover {
     color: dodgerblue;
     transition: 0.5s all;
+}
+
+@media screen and (min-width: 0px) and (max-width: 576px) {
+    .info-mobile {
+        display: none;
+    }
 }
