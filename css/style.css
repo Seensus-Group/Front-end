@@ -13,7 +13,7 @@
     font-family: 'QuickSand', Arial, Helvetica, sans-serif;
 }
 
-#h1 {
+.h1 {
     display: none;
 }
 
@@ -45,7 +45,7 @@ main {
 /* Inicio do login */
 #shadow {
     background-color: var(--color-fundo);   
-    position: absolute;
+    position: fixed;
     width: 100vw;
     height: 100vh;
     z-index: -100;

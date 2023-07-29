@@ -1,5 +1,5 @@
 const btnLogin = document.getElementById("btnLogin");
-const txtuser = document.getElementById("txtemail");
+const txtuser = document.getElementById("txtuser");
 const senha = document.getElementById("txtsenha");
 let autenticado;
 let token;
@@ -10,7 +10,7 @@ btnLogin.onclick = () => {
         return alert(`Todos os campos devem ser preenchidos`)
     }
     else {
-        fetch("http://127.0.0.1:5062/users/login", {
+        fetch("http://127.0.0.1:5062/store/login", {
             method: "POST",
             headers: {
                 "accept": "application/json",
@@ -31,7 +31,7 @@ btnLogin.onclick = () => {
             else {
                 txtuser.value = "";
                 senha.value = "";
-                return alert(`Usuário ou seenha incorretos`);
+                return alert(`Usuário ou senha incorretos`);
             }
         }).catch((error) => {
             console.error(`Não foi possível requisitar a API -> ${error}`);

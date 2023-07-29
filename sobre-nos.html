@@ -8,8 +8,49 @@
     <title>Seensus</title>
 </head>
 <body>
+    <!-- Inicio do login -->
+    <div id="shadow">
+        <form action="" id="login_form">
+            <div id="cima_form">
+                <h1>Login</h1>
+                <a href="javascript:void" id="fechar">
+                    <i class="bi bi-x-lg"></i>
+                </a>
+            </div>
+            <div id="rede-social">
+                    <a href="#">
+                        <img src="assets/redes-sociais/facebook.png"  class="img-fluid" alt="Logo Facebook">
+                    </a>
+                    <a href="#">
+                        <img src="assets/redes-sociais/search.png" class="img-fluid" alt="Logo Google">
+                    </a>
+            </div>
+            <div id="inputs">
+                <div class="input">
+                    <label for="Nome">
+                        Nome:
+                    </label>
+                    <div class="input-login">
+                        <i class="bi bi-person-circle"></i>
+                        <input type="text" name="nome" id="txtuser"  autocomplete="off">
+                    </div>
+                </div>
+                <div class="input">
+                    <label for="Senha">
+                        Senha:
+                    </label>
+                    <div class="input-login">
+                        <i class="bi bi-person-fill-lock"></i>
+                        <input type="password" name="senha" id="txtsenha" autocomplete="off">
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="custom-btn btn-15" id="btnLogin">Entrar</button>
+        </form>
+    </div>
+    <!-- Termino do login -->
     <header>
-        <h1>Seensus Project</h1>
+        <h1 class="h1">Seensus Project</h1>
         <!-- Início do nav -->
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-xxl">
@@ -115,7 +156,7 @@
                     <a class="nav-link active" aria-current="page" href="faq.html">Anuncie aqui</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="faq.html">Área exclusiva</a>
+                    <a class="nav-link active" aria-current="page" href="javascript:void" id="login">Área exclusiva</a>
                   </li>
                 </ul>
             <!-- Barra de pesquisa -->
