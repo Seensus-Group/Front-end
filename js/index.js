@@ -1,5 +1,5 @@
 const btnLogin = document.getElementById("btnLogin");
-const txtuser = document.getElementById("txtuser");
+const txtuser = document.getElementById("txtemail");
 const senha = document.getElementById("txtsenha");
 let autenticado;
 let token;
