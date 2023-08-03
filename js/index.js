@@ -5,7 +5,7 @@ const txtbuscar = document.getElementById("txtBuscar");
 const btnbuscar = document.getElementById("btnBuscar");
 let autenticado;
 let token;
-let key;
+let key = "";
 
 btnLogin.onclick = () => {
     if (txtuser.value.trim() == "" || senha.value.trim() == "") {
@@ -28,7 +28,7 @@ btnLogin.onclick = () => {
                 token = dado.token;
                 txtuser.value = "";
                 senha.value = "";
-                window.location.replace(`index.html?key+${token}`);
+                window.location.replace(`area-exclusiva.html?key+${token}`);
             }
             else {
                 txtuser.value = "";
@@ -51,93 +51,65 @@ document.getElementById("fechar").onclick = () => {
 }
 
 
-btnbuscar.onclick = () => {
-    const searchTerm = txtbuscar.value.trim();
 
-    if (searchTerm === "") {
-        alert("Digite algo para fazer a pesquisa.");
-        return;
+function carregarDados() {
+    key = window.location.search.substring(5, window.location.search.length);
+    const estrutura = document.getElementById("estrutura");
+    
+    let url1 = "http://127.0.0.1:5062/store/list";
+    let url2 = `http://127.0.0.1:5062/store/listbyname/${key}`;
+    let url="";
+    if(key=="" || key==null || !key){
+        url = url1;
     }
-    realizarPesquisa(searchTerm);
-};
+    else{
+        url = url2;
+    }
+        
+        estrutura.innerHTML="";
 
-
-function realizarPesquisa(termo) {
-    console.log("Realizando pesquisa com o termo:", termo);
-    fetch("http://127.0.0.1:5062/store/listbyname/" + encodeURIComponent(termo))
-        .then((response) => response.json())
-        .then((data) => {
-            window.location.href=`listar.html?term=${txtbuscar}`;
-            let divList = document.createElement("div");
-            divList.style.height = "150px"; 
-            divList.setAttribute("class", "card m-3");
-            divList.innerHTML = `
-            <a href="" class="nav-link">
-                <div class="row">
-                    <div class="col-md-4">
-                        <img src="assets/logo-sem-fundo.png" class="img-fluid rounded" style="height: 150px;width:400px;object-fit:contain" alt="...">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">${item.nome}</h5>
-                            <p class="card-text">${item.descricao}</p>
+        fetch(url, {
+            method: "GET",
+            headers: {
+                "accept": "application/json",
+                "content-type": "application/json"
+            }
+        }).then((response) => response.json()).then((result) => {
+            result.data.map((item, index) => {
+                
+                let divList = document.createElement("div");
+                divList.style.height = "150px";
+                divList.setAttribute("class", "card m-3");
+                divList.innerHTML = `
+                <a href="lojas.html?pag=${item.idloja}" class="nav-link">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="assets/logo-sem-fundo.png" class="img-fluid rounded" style="height: 150px;width:400px;object-fit:contain" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">${item.nome}</h5>
+                                <p class="card-text">${item.descricao}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </a>
-            `;
-            estrutura.appendChild(divList);
+                </a>
+                `;
+                estrutura.appendChild(divList);
+            })
         }).catch((error) => console.log(`Erro ao executar API -> ${error}`));
+
+};
+
+btnbuscar.onclick = () =>{
+    window.location.replace(`listar.html?pag=${txtbuscar.value}`);
 }
-
-
-
-// btnbuscar.onclick = () => {
-//     if (txtbuscar.value.trim() == "") {
-//         return alert(`Não digitou nada`)
-//     }
-//     else {
-//         fetch("http://127.0.0.1:5062/store/listbyname/"+txtbuscar, {
-//             method: "GET",
-//             headers: {
-//                 "accept": "application/json",
-//                 "content-type": "application/json"
-//             }
-//         }).then((response) => response.json()).then((result) => {
-//             result.data.map((item, index) => {
-//                 window.location.href=`listar.html?pag=${txtbuscar}`;
-//                 let divList = document.createElement("div");
-//                 divList.style.height = "150px"; 
-//                 divList.setAttribute("class", "card m-3");
-//                 divList.innerHTML = `
-//                 <a href="" class="nav-link">
-//                     <div class="row">
-//                         <div class="col-md-4">
-//                             <img src="assets/logo-sem-fundo.png" class="img-fluid rounded" style="height: 150px;width:400px;object-fit:contain" alt="...">
-//                         </div>
-//                         <div class="col-md-8">
-//                             <div class="card-body">
-//                                 <h5 class="card-title">${item.nome}</h5>
-//                                 <p class="card-text">${item.descricao}</p>
-//                             </div>
-//                         </div>
-//                     </div>
-//                 </a>
-//                 `;
-//                 estrutura.appendChild(divList);
-//             })
-//         }).catch((error) => console.log(`Erro ao executar API -> ${error}`));
-//     };
-// }
 
 
 function carregarCategoria() {
     key = window.location.search.substring(5, window.location.search.length);
 
     const estrutura = document.getElementById("estrutura");
-
-    let url1 = "http://127.0.0.1:5062/store/listbycategory/"+key;
-    let url2 = "http://127.0.0.1:5062/store/listbycategory/"+key
 
     fetch("http://127.0.0.1:5062/store/listbycategory/"+key, {
         method: "GET",
@@ -151,13 +123,13 @@ function carregarCategoria() {
             divList.style.height = "150px";
             divList.setAttribute("class", "card m-3");
             divList.innerHTML = `
-            <a href="" class="nav-link">
+            <a href="lojas.html?pag=${item.idloja}" class="nav-link">
                 <div class="row">
-                    <div class="col-md-4">
-                        <img src="assets/logo-sem-fundo.png" class="img-fluid rounded" style="height: 150px;width:400px;object-fit:contain" alt="...">
+                    <div class="col-4">
+                        <img src="${item.foto}" class="img-fluid rounded" style="height: 150px;width:400px;object-fit:contain" alt="...">
                     </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
+                    <div class="col-8">
+                        <div class="card-body ">
                             <h5 class="card-title">${item.nome}</h5>
                             <p class="card-text">${item.descricao}</p>
                         </div>
@@ -171,28 +143,36 @@ function carregarCategoria() {
 };
 
 
-function carregarLojas() {
-
-    const estrutura2 = document.getElementById("dadosLojas");
-    map((item, index) => {
-        let divList = document.createElement("div");
-        divList.style.height = "150px";
-        divList.setAttribute("class", "card m-3");
-        divList.innerHTML = `
-        <a href="" class="nav-link">
+function infoLojas() {
+    key = window.location.search.substring(5, window.location.search.length);
+    alert(key)
+    const estruturaLojas = document.getElementById("dadosLojas");
+    
+    fetch("http://127.0.0.1:5062/store/listbyid/"+key, {
+        method: "GET",
+        headers: {
+            "accept": "application/json",
+            "content-type": "application/json"
+        }
+    }).then((response) => response.json()).then((result) => {
+        result.data.map((item, index) => {
+            let divList = document.createElement("div");
+            divList.style.height = "150px";
+            divList.setAttribute("class", "card m-3");
+            divList.innerHTML = `
             <div class="row">
-                <div class="col-md-4">
-                    <img src="assets/logo-sem-fundo.png" class="img-fluid rounded" style="height: 150px;width:400px;object-fit:contain" alt="...">
+                <div class="col-4">
+                    <img src="${item.foto}" class="img-fluid rounded" style="height: 150px;width:400px;object-fit:contain" alt="...">
                 </div>
-                <div class="col-md-8">
+                <div class="col-8">
                     <div class="card-body">
                         <h5 class="card-title">${item.nome}</h5>
                         <p class="card-text">${item.descricao}</p>
                     </div>
                 </div>
             </div>
-        </a>
-        `;
-        estrutura2.appendChild(divList);
-    })
+            `;
+            estruturaLojas.appendChild(divList);
+        })
+    }).catch((error) => console.log(`Erro ao executar API -> ${error}`));
 }
