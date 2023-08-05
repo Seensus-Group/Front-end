@@ -1,3 +1,4 @@
+/* Variaveis de cor */
 :root{
     --color-branco: #fff;
     --color-azul-escuro: #0511F2;
@@ -5,12 +6,17 @@
     --color-fundo: #0000009e;
     --color-preto: #000000;
 }
+/* Fim das variaves de cor */
 
 * {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
     font-family: 'QuickSand', Arial, Helvetica, sans-serif;
+}
+
+html,body {
+    overflow-x: hidden !important;
 }
 
 .h1 {
@@ -217,8 +223,14 @@ footer a:hover {
 /* Fim do footer */
 
 
-@media screen and (min-width: 0px) and (max-width: 576px) {
-    .info-mobile {
-        display: none;
+@media screen and (min-width: 993px) {
+    .dropdown .dropdown-menu.show {
+        display: none !important;
+    }
+    .dropdown:hover .dropdown-menu {
+        display: block !important;
+    }
+    .dropdown:focus .dropdown-menu {
+        display: block !important;
     }
 }

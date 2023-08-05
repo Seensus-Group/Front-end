@@ -56,7 +56,7 @@ function carregarDados() {
     key = window.location.search.substring(5, window.location.search.length);
     const estrutura = document.getElementById("estrutura");
     
-    let url1 = "http://127.0.0.1:5062/store/list";
+    let url1 = `http://127.0.0.1:5062/store/list`;
     let url2 = `http://127.0.0.1:5062/store/listbyname/${key}`;
     let url="";
     if(key=="" || key==null || !key){
@@ -84,7 +84,7 @@ function carregarDados() {
                 <a href="lojas.html?pag=${item.idloja}" class="nav-link">
                     <div class="row">
                         <div class="col-md-4">
-                            <img src="assets/logo-sem-fundo.png" class="img-fluid rounded" style="height: 150px;width:400px;object-fit:contain" alt="...">
+                            <img src="${item.foto}" class="img-fluid rounded" style="height: 150px;width:400px;object-fit:contain" alt="...">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
@@ -144,8 +144,7 @@ function carregarCategoria() {
 
 
 function infoLojas() {
-    key = window.location.search.substring(5, window.location.search.length);
-    alert(key)
+    key = window.location.search.substring(5, window.location.search.length);   
     const estruturaLojas = document.getElementById("dadosLojas");
     
     fetch("http://127.0.0.1:5062/store/listbyid/"+key, {
@@ -157,17 +156,20 @@ function infoLojas() {
     }).then((response) => response.json()).then((result) => {
         result.data.map((item, index) => {
             let divList = document.createElement("div");
-            divList.style.height = "150px";
-            divList.setAttribute("class", "card m-3");
             divList.innerHTML = `
-            <div class="row">
-                <div class="col-4">
-                    <img src="${item.foto}" class="img-fluid rounded" style="height: 150px;width:400px;object-fit:contain" alt="...">
-                </div>
-                <div class="col-8">
-                    <div class="card-body">
-                        <h5 class="card-title">${item.nome}</h5>
-                        <p class="card-text">${item.descricao}</p>
+            <div class="card m-3">
+                <div class="row p-2">
+                    <div class="col">
+                        <img src="${item.foto}" class="img-fluid rounded" style="height: 200px;width:400px;object-fit:contain" alt="...">
+                    </div>
+                    <div class="col-8">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">${item.nome}</h5>
+                            <p class="card-text"><strong>Sobre a loja: </strong>${item.descricao}</p>
+                            <p class="card-text"><strong>Telefone: </strong>${item.telefone} <strong>CNPJ da loja: </strong>${item.cnpj}</p>
+                            <p class="card-text"><strong>Logradouro: </strong>${item.logradouro} <strong>CEP: </strong>${item.cep}</p>
+                            <p class="card-text"><strong>Departamento: </strong>${item.categoria}</p>
+                        </div>
                     </div>
                 </div>
             </div>
