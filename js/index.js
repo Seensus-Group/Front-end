@@ -3,6 +3,8 @@ const txtuser = document.getElementById("txtemail");
 const senha = document.getElementById("txtsenha");
 const txtbuscar = document.getElementById("txtBuscar");
 const btnbuscar = document.getElementById("btnBuscar");
+const btnEditar = document.getElementById("editar");
+const btnDados = document.getElementById("btnDados");
 let autenticado;
 let token;
 let key = "";
@@ -177,4 +179,54 @@ function infoLojas() {
             estruturaLojas.appendChild(divList);
         })
     }).catch((error) => console.log(`Erro ao executar API -> ${error}`));
+}
+
+function editar(id, nome, email,descricao,cnpj,logradouro,cep,categoria){
+    
+    let divList = document.createElement("div");
+    divList.innerHTML = `
+    <div class="card m-3">
+        <div class="row p-2">
+            <div class="col">
+                <img src="${item.foto}" class="img-fluid rounded" style="height: 200px;width:400px;object-fit:contain" alt="...">
+            </div>
+            <div class="col-8">
+                <div class="card-body">
+                    <h5 class="card-title text-center">${item.nome}</h5>
+                    <p class="card-text"><strong>Sobre a loja: </strong>${item.descricao}</p>
+                    <p class="card-text"><strong>Telefone: </strong>${item.telefone} <strong>CNPJ da loja: </strong>${item.cnpj}</p>
+                    <p class="card-text"><strong>Logradouro: </strong>${item.logradouro} <strong>CEP: </strong>${item.cep}</p>
+                    <p class="card-text"><strong>Departamento: </strong>${item.categoria}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    `;
+    estruturaLojas.appendChild(divList);
+   
+    input_sub.onclick = ()=>{
+        if(input_cpass.value != input_pass.value){
+            input_cpass.value= "";
+            return alert("Senha de confirmaçãom incorreta");
+        }
+        else{
+            fetch(`http://127.0.0.1:30021/users/update/${id}`,{
+                method:"PUT",
+                headers:{
+                    "accept":"application/json",
+                    "content-type":"application/json",
+                    "token": key
+                },
+                body:JSON.stringify({
+                    email:input_email.value,
+                    senha:input_pass.value
+                })
+            }).then
+        }
+    }
+}
+
+btnEditar.onclick = () =>{
+    document.getElementById("shadow").style.zIndex = "200";
+    document.getElementById("shadow").style.opacity = "1";
 }

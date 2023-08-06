@@ -72,6 +72,16 @@ main {
     box-shadow: 5px 5px 5px var(--color-fundo);
 }
 
+
+/* Animação do X(fechar) */
+#fechar{
+    transition: ease 2s;
+}
+#fechar:hover{
+    transform:rotate(360deg);
+}
+/* Fim da animação */
+
 #cima_form {
     display: flex;
     align-items: center;
