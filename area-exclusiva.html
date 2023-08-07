@@ -11,70 +11,41 @@
 
 <body>
     <h1 class="h1">Seensus Project</h1>
-    <!-- Inicio login -->
+    <!-- Inicio do login -->
     <div id="shadow">
-        <form onsubmit="return false" id="login_form">
+        <form onsubmit="return false" id="editar_form">
             <div id="cima_form">
-                <h1>Login</h1>
+                <h1>Editar</h1>
                 <a href="javascript:void" id="fechar">
                     <i class="bi bi-x-lg"></i>
                 </a>
             </div>
-            <div id="rede-social">
-                <a href="#">
-                    <img src="assets/redes-sociais/search.png" class="img-fluid" alt="Logo Facebook">
-                </a>
-                <a href="#">
-                    <img src="assets/redes-sociais/facebook.png" class="img-fluid" alt="Logo Google">
-                </a>
-            </div>
             <div id="inputs">
                 <div class="input">
-                    <label for="Nome">
+                    <label for="Email">
                         Nome:
                     </label>
                     <div class="input-login">
-                        <input type="text" name="nome" id="txtname" autocomplete="off">
+                        <i class="bi bi-person-circle"></i>
+                        <input type="text" name="nome" id="txtnome" autocomplete="off">
                     </div>
                 </div>
                 <div class="input">
-                    <label for="Nome">
+                    <label for="Email">
                         Email:
                     </label>
                     <div class="input-login">
+                        <i class="bi bi-person-circle"></i>
                         <input type="text" name="nome" id="txtemail" autocomplete="off">
                     </div>
                 </div>
                 <div class="input">
-                    <label for="Nome">
-                        CNPJ:
+                    <label for="Email">
+                        Email:
                     </label>
                     <div class="input-login">
-                        <input type="text" name="nome" id="txtcnpj" autocomplete="off">
-                    </div>
-                </div>
-                <div class="input">
-                    <label for="Nome">
-                        CEP:
-                    </label>
-                    <div class="input-login">
-                        <input type="text" name="nome" id="txtcep" autocomplete="off">
-                    </div>
-                </div>
-                <div class="input">
-                    <label for="Nome">
-                        Logradouro:
-                    </label>
-                    <div class="input-login">
-                        <input type="text" name="nome" id="txtlogradouro" autocomplete="off">
-                    </div>
-                </div>
-                <div class="input">
-                    <label for="Nome">
-                        Numero:
-                    </label>
-                    <div class="input-login">
-                        <input type="text" name="nome" id="txtnumero" autocomplete="off">
+                        <i class="bi bi-person-circle"></i>
+                        <input type="text" name="nome" id="txtemail" autocomplete="off">
                     </div>
                 </div>
                 <div class="form-floating mb-3">
@@ -97,29 +68,20 @@
                     <label for="floatingSelect">Selecione apenas uma categoria</label>
                 </div>
                 <div class="input">
-                    <label for="Nome">
-                        Descricao:
-                    </label>
-                    <div class="input-login">
-                        <input type="text" name="nome" id="txt" autocomplete="off">
-                    </div>
-                </div>
-                <div class="input">
                     <label for="Senha">
                         Senha:
                     </label>
                     <div class="input-login">
-                        <input type="password" name="senha" id="txtpassword" autocomplete="off">
+                        <i class="bi bi-person-fill-lock"></i>
+                        <input type="password" name="senha" id="txtsenha" autocomplete="off">
                     </div>
                 </div>
             </div>
-            <button type="submit" class="custom-btn btn-15" id="btnDados">Enviar</button>
+            <button type="submit" class="custom-btn btn-15" id="btnLogin">Entrar</button>
         </form>
     </div>
-    <!-- Fim do login -->
-
+    <!-- Termino do login -->
     <header>
-
         <!-- Início do nav -->
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-xxl">
@@ -134,7 +96,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                            <a class="nav-link active" aria-current="page" href="index.html?token=?">Home</a>
                         </li>
                         <!-- Inicio da lista de Categoria  -->
                         <li class="nav-item dropdown">
@@ -150,7 +112,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="categoria.html?pag=TI">
+                                    <a class="dropdown-item" href="categoria.html?pag=ti">
                                         <i class="bi bi-pc-display p-2"></i>
                                         TI
                                     </a>
@@ -212,7 +174,7 @@
                                 <li>
                                     <a class="dropdown-item" href="categoria.html?pag=Contrução e ferramentas">
                                         <i class="bi bi-tools p-2"></i>
-                                        Construção e Ferramentas
+                                        Construção e ferramentas
                                     </a>
                                 </li>
                             </ul>
@@ -228,7 +190,8 @@
                             <a class="nav-link active" aria-current="page" href="faq.html">Anuncie aqui</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Área exclusiva</a>
+                            <a class="nav-link active" aria-current="page" >Área
+                                exclusiva</a>
                         </li>
                     </ul>
                     <!-- Barra de pesquisa -->
@@ -249,10 +212,10 @@
         <div id="dadosLojas" class="container-xxl p-3">
             <div class="card m-3">
                 <div class="row p-2">
-                    <div class="col-4">
+                    <div class="col-md-4">
                         <img src="${item.foto}" class="img-fluid rounded" style="height: 200px;width:400px;object-fit:contain" alt="...">
                     </div>
-                    <div class="col-8">
+                    <div class="col-md-8">
                         <div class="card-body">
                             <div class="d-flex justify-content-around">
                                 <h5 class="card-title"  >${item.nome}</h5>

@@ -69,7 +69,6 @@ main {
     padding: 30px 40px;
     border-radius: 10px;
     gap: 30px;
-    box-shadow: 5px 5px 5px var(--color-fundo);
 }
 
 
@@ -203,6 +202,17 @@ main {
 /* Fim do login */
 
 
+/* Inicio do editar */
+#shadow #editar_form{
+    background-color: var(--color-branco);
+    display: flex;
+    flex-direction: column;
+    padding: 30px 200px;
+    border-radius: 10px;
+    gap: 30px;
+}
+/* Fim do editar */
+
 /* Inicio do footer */
 footer {
     background-color: #fff;
@@ -231,6 +241,12 @@ footer a:hover {
     transition: 0.5s all;
 }
 /* Fim do footer */
+
+@media screen and (max-width: 570px){
+    #shadow #editar_form{
+        padding: 30px 40px;
+    }
+}
 
 
 @media screen and (min-width: 993px) {

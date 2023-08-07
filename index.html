@@ -11,9 +11,9 @@
 
 <body>
     <h1 class="h1">Seensus Project</h1>
-     <!-- Inicio do login -->
-     <div id="shadow">
-        <form onsubmit="return false" id="login_form">
+    <!-- Inicio do login -->
+    <div id="shadow">
+        <form onsubmit="return false" id="editar_form">
             <div id="cima_form">
                 <h1>Login</h1>
                 <a href="javascript:void" id="fechar">
@@ -21,12 +21,12 @@
                 </a>
             </div>
             <div id="rede-social">
-                    <a href="#">
-                        <img src="assets/redes-sociais/search.png"  class="img-fluid" alt="Logo Facebook">
-                    </a>
-                    <a href="#">
-                        <img src="assets/redes-sociais/facebook.png" class="img-fluid" alt="Logo Google">
-                    </a>
+                <a href="#">
+                    <img src="assets/redes-sociais/search.png" class="img-fluid" alt="Logo Facebook">
+                </a>
+                <a href="#">
+                    <img src="assets/redes-sociais/facebook.png" class="img-fluid" alt="Logo Google">
+                </a>
             </div>
             <div id="inputs">
                 <div class="input">
@@ -35,7 +35,7 @@
                     </label>
                     <div class="input-login">
                         <i class="bi bi-person-circle"></i>
-                        <input type="text" name="nome" id="txtemail"  autocomplete="off">
+                        <input type="text" name="nome" id="txtemail" autocomplete="off">
                     </div>
                 </div>
                 <div class="input">
@@ -77,7 +77,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a class="dropdown-item" href="categoria.html?pag=">
+                                    <a class="dropdown-item" href="categoria.html?pag=Assistência Técnica">
                                         <i class="bi bi-bug p-2"></i>
                                         Assistência Técnica
                                     </a>
@@ -89,63 +89,63 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="categoria.html?pag=">
+                                    <a class="dropdown-item" href="categoria.html?pag=Games">
                                         <i class="bi bi-controller p-2"></i>
                                         Games
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="categoria.html?pag=">
+                                    <a class="dropdown-item" href="categoria.html?pag=Eletrônicos">
                                         <i class="bi bi-display p-2"></i>
                                         Eletrônicos
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="categoria.html?pag=">
+                                    <a class="dropdown-item" href="categoria.html?pag=Eletrodomésticos">
                                         <i class="bi bi-phone-landscape p-2"></i>
                                         Eletrodomésticos
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="categoria.html?pag=">
+                                    <a class="dropdown-item" href="categoria.html?pag=Para casa">
                                         <i class="bi bi-house p-2"></i>
                                         Para Casa
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="categoria.html?pag=">
+                                    <a class="dropdown-item" href="categoria.html?pag=Móveis">
                                         <i class="bi bi-lamp p-2"></i>
                                         Móveis
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="categoria.html?pag=">
+                                    <a class="dropdown-item" href="categoria.html?pag=Moda">
                                         <i class="bi bi-watch p-2"></i>
                                         Moda
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="categoria.html?pag=">
+                                    <a class="dropdown-item" href="categoria.html?pag=PETS">
                                         <i class="bi bi-tencent-qq p-2"></i>
                                         Pets
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="categoria.html?pag=">
+                                    <a class="dropdown-item" href="categoria.html?pag=Esportes">
                                         <i class="bi bi-bicycle p-2"></i>
                                         Esportes
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="categoria.html?pag=">
+                                    <a class="dropdown-item" href="categoria.html?pag=Automotivos">
                                         <i class="bi bi-car-front p-2"></i>
                                         Automotivos
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="categoria.html?pag=">
+                                    <a class="dropdown-item" href="categoria.html?pag=Contrução e ferramentas">
                                         <i class="bi bi-tools p-2"></i>
-                                        Construção e Ferramentas
+                                        Construção e ferramentas
                                     </a>
                                 </li>
                             </ul>
@@ -161,14 +161,16 @@
                             <a class="nav-link active" aria-current="page" href="faq.html">Anuncie aqui</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="javascript:void" id="login">Área exclusiva</a>
+                            <a class="nav-link active" aria-current="page" href="javascript:void" id="login">Área
+                                exclusiva</a>
                         </li>
                     </ul>
                     <!-- Barra de pesquisa -->
                     <form class="d-flex" role="search" onsubmit="return false">
                         <input class="form-control input-buscar me-2" type="search" placeholder="Search"
                             aria-label="Search" id="txtBuscar">
-                        <button id="btnBuscar" class="btn btn-primary btn-buscar" type="submit"><i class="bi bi-search"></i></button>
+                        <button id="btnBuscar" class="btn btn-primary btn-buscar" type="submit"><i
+                                class="bi bi-search"></i></button>
                     </form>
                     <!-- Fim da barra de pesquisa -->
                 </div>
@@ -242,13 +244,14 @@
             <div class="row w-100 m-0 pb-4">
                 <div class="card">
                     <div class="row">
-                        <div class="col-5 p-0 info-mobile">
+                        <div class="col-md-5 p-0 info-mobile">
                             <img src="assets/seensusbanner.png" class="img-fluid rounded" alt="...">
                         </div>
                         <div class="col">
                             <div class="card-body">
                                 <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium
+                                <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                    Praesentium
                                     facere esse molestias nesciunt earum? Iure vero dolores, odit cum at praesentium,
                                     dignissimos tempore suscipit rem quia saepe autem quis illo!
                                     Rem mollitia incidunt aperiam odit obcaecati reprehenderit cupiditate! Cum eos, quae
@@ -259,12 +262,12 @@
                                         <h3>15+</h3>
                                         <p>Estados</p>
                                     </div>
-    
+
                                     <div class="col">
                                         <h3>100+</h3>
                                         <p>Lojas registradas</p>
                                     </div>
-    
+
                                     <div class="col">
                                         <h3>20+</h3>
                                         <p>Departamentos</p>
