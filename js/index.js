@@ -182,4 +182,14 @@ function infoLojas() {
 
 function editarLojas () {
     key = window.location.search.substring(5, window.location.search.length);
+    const estruturaEditar = document.getElementById("editarLojas");
+
+    fetch("http://127.0.0.1:5062/store/login"){
+        method: "GET",
+        headers: {
+            "accept": "application/json",
+            "content-type": "application/json"
+        }
+        
+    }
 }
