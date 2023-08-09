@@ -184,12 +184,45 @@ function editarLojas () {
     key = window.location.search.substring(5, window.location.search.length);
     const estruturaEditar = document.getElementById("editarLojas");
 
-    fetch("http://127.0.0.1:5062/store/login"){
+    fetch("http://127.0.0.1:5062/store/login" , {
         method: "GET",
         headers: {
             "accept": "application/json",
             "content-type": "application/json"
-        }
-        
-    }
+        },
+        body:JSON.stringify({
+            nome:txtnome.value,
+            senha:txtpassword.value,
+            email:txtemail.value,
+            cnpj:txtcnpj.value,
+        })
+        }).then((response)=> response.json()).the((result)=>{result.data.map((item,index)=>{
+            let divList = document.createElement("div");
+            divList.innerHTML = `
+            <div class="card m-3">
+                <div class="row p-2">
+                    <div class="col-md-4">
+                        <img src="${item.foto}" class="img-fluid rounded" style="height: 200px;width:400px;object-fit:contain" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-around">
+                                <h5 class="card-title"  >${item.nome}</h5>
+                                <a href="javascript:void" id="login">
+                                    <i class="bi bi-pencil-square">Editar dados</i>
+                                </a>
+                            </div>
+                            <p class="card-text"><strong>Sobre a loja: </strong>${item.descricao}</p>
+                            <p class="card-text"><strong>Telefone: </strong>${item.telefone} <strong>CNPJ da loja: </strong>${item.cnpj}</p>
+                            <p class="card-text"><strong>Logradouro: </strong>${item.logradouro} <strong>CEP: </strong>${item.cep}</p>
+                            <p class="card-text"><strong>Departamento: </strong>${item.categoria}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            `;
+            estruturaLojas.appendChild(divList);
+        });
+    }).catch((error) => console.log(`Erro ao executar API -> ${error}`));
+
 }
