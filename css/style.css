@@ -211,7 +211,8 @@ main {
 
 
 /* Inicio do editar */
-main #login {
+main #editar {
+    font-style: normal;
     color: #000000;
     text-decoration: none;
 }
@@ -221,14 +222,19 @@ main #login {
     width: 800px;
     padding: 30px 20px;
     border-radius: 10px;
-    gap: 30px;
 }
 
 #editar_form #texto_cima {
-    font-size: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+#texto_cima h1{
+    font-size: 25px;
+    font-weight: 400;
+    font-style: initial;
 }
 
 #texto_cima a {
@@ -236,36 +242,65 @@ main #login {
     text-decoration: none;
 }
 
-.input-editar{
-    background-color: #212121;
-    max-width: 190px;
-    height: 40px;
-    padding: 10px;
-    border: 2px solid white;
-    border-radius: 5px;
+#inputs_editar {
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.input-editar:focus {
-    color: var(--color-azul-escuro);
-    background-color: #212121;
-    outline-color: var(--color-azul-escuro);
-    transition: .1s;
-    transition-property: box-shadow;
+#inputs_editar .input label {
+    font-size: 18px;
+    color: var(--color-preto);
+    margin-left: 20px;
+}
+
+.input-editar {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 3px;
+    cursor: text;
+    width: 58vh;
+    margin-left: 20px;
+    border-bottom: 1px solid var(--color-azul-escuro);
+}
+
+.input-editar input {
+    border: none;
+    width: 100%;
+    background-color: transparent;
+    font-size: 16px;
+}
+
+.input-editar input:focus {
+    outline: none;
 }
 
 .row-input {
-    width: 70%;
     display: flex;
 }
 
-.row-input input {
-    padding: 0px 30px;
+#descricao textarea{
+    width: 97%;
     margin: 0px 20px;
+    border: 1px solid var(--color-azul-escuro);
+    border-radius: 5px;
+    height: 100px;
+}
+
+#descricao textarea:focus{
+    outline: none;
 }
 
 #botao_editar {
-    margin-top: 20px;
-    width: 40%;
+    text-align: center;
+    align-items: center;
+    justify-items: center;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: -10px;
 }
 
 /* Fim do editar */
@@ -318,26 +353,14 @@ footer a:hover {
 
 /* Fim do footer */
 
-@media screen and (max-width: 570px) {
-    #shadow #editar_form {
-        padding: 30px 40px;
-    }
-
-    #shadow #login_form {
-        padding: 30px 40px;
-    }
-}
-
 
 @media screen and (min-width: 993px) {
     .dropdown .dropdown-menu.show {
         display: none !important;
     }
-
     .dropdown:hover .dropdown-menu {
         display: block !important;
     }
-
     .dropdown:focus .dropdown-menu {
         display: block !important;
     }
