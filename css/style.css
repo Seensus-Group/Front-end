@@ -31,18 +31,22 @@ header ul {
     display: flex;
     text-align: center;
 }
-
 header a {
     text-decoration: none;
     padding-right: 30px;
-}
-
+}   
 header img {
     width: 60px;
 }
-
-.dropdown:hover .dropdown-menu {
-    display: block;
+.input-buscar {
+    width: 100%;
+    height: 50px;
+}
+.btn-buscar {
+    position: relative;
+    margin-left: -12px;
+    width: 150px;
+    height: 50px;
 }
 
 /* Fim do header */
@@ -310,7 +314,6 @@ main #editar {
 .card-idelizadores {
     text-decoration: none;
 }
-
 /* Fim dos card dos Indelizadores */
 
 
@@ -354,13 +357,13 @@ footer a:hover {
 
 
 @media screen and (min-width: 993px) {
-    .dropdown .dropdown-menu.show {
+    .dropdown .dropdown-menu .show:focus {
         display: none !important;
     }
-    .dropdown:hover .dropdown-menu {
+    .dropdown:hover .dropdown-menu .show:hover {
         display: block !important;
     }
-    .dropdown:focus .dropdown-menu {
+    .dropdown:focus .dropdown-menu:focus .show:focus{
         display: block !important;
     }
 }
