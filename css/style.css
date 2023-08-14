@@ -221,6 +221,8 @@ main #editar {
     text-decoration: none;
 }
 
+
+
 #shadow #editar_form {
     background-color: var(--color-branco);
     width: 800px;
@@ -266,7 +268,7 @@ main #editar {
     gap: 15px;
     padding: 3px;
     cursor: text;
-    width: 58vh;
+    width: 44vh;
     margin-left: 20px;
     border-bottom: 1px solid var(--color-azul-escuro);
 }
@@ -287,7 +289,7 @@ main #editar {
 }
 
 #descricao textarea{
-    width: 97%;
+    width: 93%;
     margin: 0px 20px;
     border: 1px solid var(--color-azul-escuro);
     border-radius: 5px;
