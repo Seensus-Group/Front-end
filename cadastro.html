@@ -306,6 +306,14 @@
     <script src="js/index.js"></script>
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script>
+
+        function onloadCallback() {
+            // Aqui você pode fazer qualquer coisa que precise ser feita após o carregamento do reCAPTCHA
+        }
+
+        document.getElementById("enviarEmail").addEventListener("click", function() {
+            // Seu código de envio do formulário aqui
+        });
          emailjs.init("M0n5ZDKO7rlgF3KhU");
         
         document.getElementById("enviarEmail").addEventListener("click", function() {
@@ -335,6 +343,7 @@
                 });
         }
         });
+        
     </script>
     <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer>
     </script>
