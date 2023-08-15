@@ -185,27 +185,27 @@
         <div class="container-xxl pt-4 pb-4">
             <form action="" class="card p-3" id="FormRecaptha">
                 <div class="form-floating mb-3">
-                    <input type="email" class="form-control" placeholder="name@example.com">
+                    <input type="email" class="form-control" id="reCapthaEmail" placeholder="name@example.com">
                     <label>Digite seu email</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" placeholder="Nome">
+                    <input type="text" class="form-control" id="reCapthaNome" placeholder="Nome">
                     <label>Nome completo</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" placeholder="CNPJ">
+                    <input type="text" class="form-control"  id="reCapthaTelefone" placeholder="CNPJ">
                     <label>Número de telefone</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" placeholder="CNPJ">
+                    <input type="text" class="form-control" id="reCapthaCnpj" placeholder="CNPJ">
                     <label>CNPJ</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" placeholder="CNPJ">
+                    <input type="text" class="form-control" id="reCapthaEmpresa" placeholder="CNPJ">
                     <label>Nome da empresa</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <select class="form-select" aria-label="Selecione a categoria da loja">
+                    <select class="form-select" aria-label="Selecione a categoria da loja" id="reCapthaCategoria">
                         <option selected>Selecione a categoria</option>
                         <option value="1">Assistência Técnica</option>
                         <option value="2">TI e Hardware</option>
@@ -226,7 +226,7 @@
 
                 <div class="form-floating mb-3">
                     <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
-                        style="height: 100px"></textarea>
+                        style="height: 100px" id="reCapthaDescricao"></textarea>
                     <label for="floatingTextarea2">Descreva sua loja</label>
                 </div>
                 <div class="g-recaptcha" data-sitekey="6LdgKH4nAAAAAPNw-nu-oWy2-vTc808zxNmMyPNi"></div>
@@ -316,8 +316,13 @@
             // Enviar o e-mail usando o EmailJS
             var templateParams = {
                 to_email: "seensusgroup@gmail.com",
-                from_name: form.nome.value,
-                message: form.mensagem.value,
+                from_name: form.reCapthaNome.value,
+                from_empresa: form.reCapthaEmpresa.value,
+                from_cnpj: form.reCapthaCnpj.value,
+                from_telefone: form.reCapthaTelefone.value,
+                from_categoria: form.reCapthaCategoria.value,
+                from_email: form.reCapthaEmail.value,
+                message: form.reCapthaDescricao.value,
             };
             
             emailjs.send("seensusgroup", "template_iumiumi", templateParams)
