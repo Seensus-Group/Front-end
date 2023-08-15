@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,33 +23,31 @@
             </div>
             <div id="rede-social">
                 <a href="#">
-                    <img src="assets/redes-sociais/search.png" class="img-fluid" alt="Logo Facebook">
+                    <img src="assets/redes-sociais/search.png" class="img-fluid" alt="Logo Facebook" />
                 </a>
                 <a href="#">
-                    <img src="assets/redes-sociais/facebook.png" class="img-fluid" alt="Logo Google">
+                    <img src="assets/redes-sociais/facebook.png" class="img-fluid" alt="Logo Google" />
                 </a>
             </div>
             <div id="inputs">
                 <div class="input">
-                    <label for="Email">
-                        Email:
-                    </label>
+                    <label for="Email"> Email: </label>
                     <div class="input-login">
                         <i class="bi bi-person-circle"></i>
-                        <input type="text" name="nome" id="txtemail" autocomplete="off">
+                        <input type="text" name="nome" id="txtemail" autocomplete="off" />
                     </div>
                 </div>
                 <div class="input">
-                    <label for="Senha">
-                        Senha:
-                    </label>
+                    <label for="Senha"> Senha: </label>
                     <div class="input-login">
                         <i class="bi bi-person-fill-lock"></i>
-                        <input type="password" name="senha" id="txtsenha" autocomplete="off">
+                        <input type="password" name="senha" id="txtsenha" autocomplete="off" />
                     </div>
                 </div>
             </div>
-            <button type="submit" class="custom-btn btn-15" id="btnLogin">Entrar</button>
+            <button type="submit" class="custom-btn btn-15" onclick="login()">
+                Entrar
+            </button>
         </form>
     </div>
     <!-- Termino do login -->
@@ -163,7 +162,8 @@
                             <a class="nav-link active" aria-current="page" href="faq.html">Anuncie aqui</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="javascript:void" onclick="showShadow()">Área exclusiva</a>
+                            <a class="nav-link active" aria-current="page" href="javascript:void"
+                                onclick="showShadow()">Área exclusiva</a>
                         </li>
                     </ul>
                     <!-- Barra de pesquisa -->
@@ -183,7 +183,7 @@
     <main>
         <!-- Inicio do formulario de cadastro -->
         <div class="container-xxl pt-4 pb-4">
-            <form action="" class="card p-3">
+            <form action="" class="card p-3" id="FormRecaptha">
                 <div class="form-floating mb-3">
                     <input type="email" class="form-control" placeholder="name@example.com">
                     <label>Digite seu email</label>
@@ -231,7 +231,7 @@
                 </div>
                 <div class="g-recaptcha" data-sitekey="6LdgKH4nAAAAAPNw-nu-oWy2-vTc808zxNmMyPNi"></div>
 
-                <button type="submit" class="btn btn-outline-success ms-auto">Enviar solicitação</button>
+                <button type="submit" class="btn btn-outline-success ms-auto" id="enviarEmail">Enviar solicitação</button>
             </form>
         </div>
         <!-- Fim do formulario de cadastro -->

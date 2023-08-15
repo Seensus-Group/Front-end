@@ -30,7 +30,7 @@ let key = "";
 // Fim dos dados dos token
 
 // Inicio da função de login
-function login () {
+function login() {
   if (txtuser.value.trim() == "" || senha.value.trim() == "") {
     return alert(`Todos os campos devem ser preenchidos`);
   } else {
@@ -220,67 +220,31 @@ function infoLojas() {
 // Fim da função carregar o id da loja
 
 
-// Execução para fazer update
-function editar() {
+// Função carregar o id da loja e passa os dados
+function infoLojaEditar() {
   let url = window.location.search;
   let params = new URLSearchParams(url);
   let id = parseInt(params.get("pag"));
-  if (txtNome == "" || txtNome == "" || txtNome == null) {
-    alert("Erro ao atulizar os dados")
-  }
-  else{
-    alert("atualizou os dados");
-    window.location.reload(true);
-    fetch(`http://127.0.0.1:5062/store/update/${id}`, {
-      method: "PUT",
-      headers: {
-        accept: "application/json",
-        "content-type": "application/json",
-        token: key,
-      },
-      body: JSON.stringify({
-        nome: txtNome.value,
-        email: txtEmail.value,
-        telefone: txtTelefone.value,
-        cep: txtCep.value,
-        numero: txtNumero.value,
-        logradouro: txtLogradouro,
-        complemento: txtComplemento,
-        senha: txtPassword.value,
-        descricao: txtDescricao.value,
-      }),
-    }).then.catch((error) => console.log(`Erro ao executar API -> ${error}`));
-  }
-}
-// Fim do update
+  const estruturaLojas = document.getElementById("dadosLojas");
 
-// Função carregar o id da loja e passa os dados
-function infoLojaEditar() {
-    let url = window.location.search;
-    let params = new URLSearchParams(url);
-    let id = parseInt(params.get("pag"));
-    const estruturaLojas = document.getElementById("dadosLojas");
-
-    fetch("http://127.0.0.1:5062/store/listbyid/" + id, {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        "content-type": "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((result) => {
-        result.data.map((item, index) => {
-          document.getElementById("txtNome").value = item.nome;
-          document.getElementById("txtTelefone").value = item.telefone;
-          document.getElementById("txtNumero").value = item.numero;
-          document.getElementById("txtComplemento").value = item.complemento;
-          document.getElementById("txtEmail").value = item.email;
-          document.getElementById("txtCep").value = item.cep;
-          document.getElementById("txtLogradouro").value = item.logradouro;
-          document.getElementById("txtDescricao").value = item.descricao;
-          let divList = document.createElement("div")
-          divList.innerHTML = `
+  fetch("http://127.0.0.1:5062/store/listbyid/" + id, {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      "content-type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      result.data.map((item, index) => {
+        document.getElementById("txtNome").value = item.nome;
+        document.getElementById("txtNumero").value = item.numero;
+        document.getElementById("txtComplemento").value = item.complemento;
+        document.getElementById("txtCep").value = item.cep;
+        document.getElementById("txtLogradouro").value = item.logradouro;
+        document.getElementById("txtDescricao").value = item.descricao;
+        let divList = document.createElement("div")
+        divList.innerHTML = `
         <div class="card m-3">
         <div class="row p-2">
             <div class="col-md-4">
@@ -303,10 +267,70 @@ function infoLojaEditar() {
             </div>
             </div>
             `;
-          estruturaLojas.appendChild(divList);
-        });
-      })
-      .catch((error) => console.log(`Erro ao executar API -> ${error}`));
+        estruturaLojas.appendChild(divList);
+      });
+    })
+    .catch((error) => console.log(`Erro ao executar API -> ${error}`));
 }
 // Fim da função carregar o id da loja e passa os dados
 
+// Execução para fazer update
+function editar() {
+  let url = window.location.search;
+  let params = new URLSearchParams(url);
+  let id = parseInt(params.get("pag"));
+  if (txtNome == "" || txtNome.value.trim() == "" || txtNome == null || txtPassword.value.trim() == "") {
+    alert("Erro ao atulizar os dados");
+  }
+  else {
+    alert("atualizou os dados");
+    window.location.reload(true);
+    fetch(`http://127.0.0.1:5062/store/update/${id}`, {
+      method: "PUT",
+      headers: {
+        accept: "application/json",
+        "content-type": "application/json",
+        token: key,
+      },
+      body: JSON.stringify({
+        nome: txtNome.value,
+        cep: txtCep.value,
+        numero: txtNumero.value,
+        logradouro: txtLogradouro.value,
+        complemento: txtComplemento.value,
+        senha: txtPassword.value,
+        descricao: txtDescricao.value,
+      }),
+    }).then.catch((error) => console.log(`Erro ao executar API -> ${error}`));
+  }
+}
+// Fim do update
+
+// Inicio da função para mandar email
+function formEmail(){
+  emailjs.init("seensusgroup");
+        
+    document.getElementById("enviarEmail").addEventListener("click", function() {
+    var form = document.getElementById("FormRecaptha");
+    var recaptchaResponse = grecaptcha.getResponse();
+    
+    if (recaptchaResponse.length === 0) {
+        alert("Por favor, complete o reCAPTCHA.");
+    } else {
+        // Enviar o e-mail usando o EmailJS
+        var templateParams = {
+            to_email: "seensusgroup@gmail.com",
+            from_name: form.nome.value,
+            message: form.mensagem.value,
+        };
+        
+        emailjs.send("seensusgroup", "template_iumiumi", templateParams)
+            .then(function(response) {
+                alert("Formulário enviado com sucesso!");
+            }, function(error) {
+                alert("Erro ao enviar o Formulário Por favor, tente novamente.");
+            });
+    }
+    });
+}
+// Fim da função email
