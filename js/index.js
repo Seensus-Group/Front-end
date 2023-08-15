@@ -308,29 +308,5 @@ function editar() {
 
 // Inicio da função para mandar email
 function formEmail(){
-  emailjs.init("seensusgroup");
-        
-    document.getElementById("enviarEmail").addEventListener("click", function() {
-    var form = document.getElementById("FormRecaptha");
-    var recaptchaResponse = grecaptcha.getResponse();
-    
-    if (recaptchaResponse.length === 0) {
-        alert("Por favor, complete o reCAPTCHA.");
-    } else {
-        // Enviar o e-mail usando o EmailJS
-        var templateParams = {
-            to_email: "seensusgroup@gmail.com",
-            from_name: form.nome.value,
-            message: form.mensagem.value,
-        };
-        
-        emailjs.send("seensusgroup", "template_iumiumi", templateParams)
-            .then(function(response) {
-                alert("Formulário enviado com sucesso!");
-            }, function(error) {
-                alert("Erro ao enviar o Formulário Por favor, tente novamente.");
-            });
-    }
-    });
 }
 // Fim da função email
