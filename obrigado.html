@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
-  <title>Seensus | Contato</title>
+  <title>Seensus | Home</title>
 </head>
 
 <body>
@@ -64,7 +64,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+              <a class="nav-link active" aria-current="page" href="index.html?token=?">Home</a>
             </li>
             <!-- Inicio da lista de Categoria  -->
             <li class="nav-item dropdown">
@@ -80,7 +80,7 @@
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="categoria.html?pag=TI">
+                  <a class="dropdown-item" href="categoria.html?pag=ti">
                     <i class="bi bi-pc-display p-2"></i>
                     TI
                   </a>
@@ -142,7 +142,7 @@
                 <li>
                   <a class="dropdown-item" href="categoria.html?pag=Contrução e ferramentas">
                     <i class="bi bi-tools p-2"></i>
-                    Construção e Ferramentas
+                    Construção e ferramentas
                   </a>
                 </li>
               </ul>
@@ -158,8 +158,7 @@
               <a class="nav-link active" aria-current="page" href="faq.html">Anuncie aqui</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="javascript:void" onclick="showShadow()">Área
-                exclusiva</a>
+              <a class="nav-link active" aria-current="page" href="javascript:void" onclick="showShadow()">Área exclusiva</a>
             </li>
           </ul>
           <!-- Barra de pesquisa -->
@@ -177,52 +176,17 @@
     <!-- Fim do nav -->
   </header>
 
-  <main>
-    <!-- Inicio do formulario do contato -->
-    <div class="container-xxl pt-4 pb-4">
-      <form action="https://formsubmit.co/seensusgroup@gmail.com" method="POST" class="mb-4">
-        <div class="row-gap-md-3">
-          <div class="form-floating p-0 mb-3 w-30">
-            <input type="text" class="form-control" id="floatingInput" placeholder="nome" name="name" required />
-            <label for="floatingInput">Nome</label>
+<main>
+    <div class="container-xxl">
+        <div class="card text-center">
+            <div class="card-body">
+              <h2 class="card-title"><i class="bi bi-check2-all" style="color: blue;"></i></h2>
+              <p class="card-text">Obrigado por seu contato! Já recebemos sua mensagem e responderemos o mais breve possível, fique de olho em seu email.</p>
+              <a href="#" class="btn btn-primary">Continue navegando</a>
+            </div>
           </div>
-          <div class="form-floating p-0 mb-3 w-30">
-            <input type="email" class="form-control" id="floatingPassword" placeholder="email@email.com" name="email"
-              required />
-            <label for="floatingPassword">Email</label>
-          </div>
-          <div class="form-floating p-0 mb-3 w-30">
-            <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-              <option selected>Selecione o assunto</option>
-              <option value="1">SAC</option>
-              <option value="2">Feedback</option>
-              <option value="3">Administrativo</option>
-              <option value="4">RH</option>
-              <option value="5">Outro</option>
-            </select>
-            <label for="floatingSelect">Sobre o que deseja falar?</label>
-          </div>
-        </div>
-        <div class="row-gap-md-3">
-          <div class="form-floating p-0 mb-3">
-            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" name="message"
-              style="height: 200px"></textarea>
-            <label for="floatingTextarea2">Mensagem</label>
-          </div>
-        </div>
-        <!-- Inicio do botão -->
-        <div class="row-gap-md-3">
-          <button type="submit" class="btn btn-success" style="height: 60px; width: 150px">
-            Enviar
-          </button>
-        </div>
-        <!-- Fim do botão -->
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_next" value="http://127.0.0.1:5500/obrigado.html" />
-      </form>
     </div>
-    <!-- Fim do formulario de contato-->
-  </main>
+</main> 
 
   <footer>
     <div class="container-xxl">
