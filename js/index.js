@@ -391,74 +391,53 @@ function sendEmail() {
 // Fim da função email
 
 // Início da função de contato
-// function sendContato(){
-//   let txtEmailContato = document.getElementById("txtEmailContato").value;
-//   if (txtEmpresa == "" || txtEmpresa.value.trim() == "" || txtEmpresa == null) {
-//     alert("Erro ao enviar os dados");
-//   } else{
-//   let assunto = document.getElementById("assunto").value;
-//   let name_assunto = "";
-//   switch (assunto) {
-//     case "1":
-//       name_assunto = "Assistência Técnica";
-//       break;
-//     case "2":
-//       name_assunto = "TI e Hardware";
-//       break;
-//     case "3":
-//       name_assunto = "Games";
-//       break;
-//     case "4":
-//       name_assunto = "Eletrônicos";
-//       break;
-//     case "5":
-//       name_assunto = "Para Casa";
-//       break;
-//     case "6":
-//       name_assunto = "Móveis";
-//       break;
-//     case "7":
-//       name_assunto = "Eletrodomésticos";
-//       break;
-//     case "8":
-//       name_assunto = "Moda";
-//       break;
-//     case "9":
-//       name_assunto = "Pets";
-//       break;
-//     case "10":
-//       name_assunto = "Esportes";
-//       break;
-//     case "11":
-//       name_assunto = "Automotivos";
-//       break;
-//     case "12":
-//       name_assunto = "Construção e ferramentas";
-//       break;
-//   }
+function sendContato() {
+  // Inicio dos dados de cadastro
+  let  nome_contato = document.getElementById("nome_contato").value;
+  let email_contato = document.getElementById("email_contato").value;
+  // Fim dos dados de cadastro
+  if  (nome_contato.trim()==""||email_contato.trim==""){
+    alert("Erro ao enviar os dados");
+  }else{
+  let assunto = document.getElementById("assunto").value;
+  let name_assunto = "";
+  switch (assunto) {
+    case "1":
+      name_assunto = "SAC";
+      break;
+    case "2":
+      name_assunto = "Feedback";
+      break;
+    case "3":
+      name_assunto = "Administrativo";
+      break;
+    case "4":
+      name_assunto = "RH";
+      break;
+    case "5":
+      name_assunto = "Outro";
+      break;
+  }
 
-  
-//   var params = {
-//     mensagem: document.getElementById("des_form").value,
-//     name: document.getElementById("name_form").value,
-//     empresa: txtEmpresa,
-//     cnpj: document.getElementById("cnpj_form").value,
-//     telefone: document.getElementById("tel_form").value,
-//     categoria: name_categoria,
-//     email: document.getElementById("email_Form").value,
-//   };
 
-//   const serviceID = "service_1u4tzto";
-//   const templateID = "template_flqohf5";
-//     emailjs.send(serviceID, templateID, params).then(
-//       function (response) {
-//         console.log("E-mail enviado com sucesso!", response);
-//         window.location.replace("obrigado.html");
-//       },
-//       function (error) {
-//         console.error("Erro ao enviar o e-mail:", error);
-//       }
-//     );
-//   }
-// }
+  var params = {
+    mensagem: document.getElementById("message_contato").value,
+    name: nome_contato,
+    assunto: name_assunto,
+    email: email_contato,
+  };
+
+  let serviceID = "service_1u4tzto";
+  let templateID = "template_flqohf5";
+    emailjs.send(serviceID, templateID, params).then(
+      function (response) {
+        console.log("E-mail enviado com sucesso!", response);
+        window.location.replace("obrigado.html");
+      },
+      function (error) {
+        console.error("Erro ao enviar o e-mail:", error);
+      }
+    );
+    }
+}
 // Fim da função de contato

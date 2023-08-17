@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
   <title>Seensus | Contato</title>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 </head>
 
 <body>
@@ -180,19 +181,19 @@
   <main>
     <!-- Inicio do formulario do contato -->
     <div class="container-xxl pt-4 pb-4">
-      <form action="https://formsubmit.co/seensusgroup@gmail.com" method="POST" class="mb-4">
+      <form onsubmit="return false" class="mb-4">
         <div class="row-gap-md-3">
           <div class="form-floating p-0 mb-3 w-30">
-            <input type="text" class="form-control" id="floatingInput" placeholder="nome" name="name" required />
+            <input type="text" class="form-control" id="nome_contato" placeholder="nome" name="name" required autocomplete="off" />
             <label for="floatingInput">Nome</label>
           </div>
           <div class="form-floating p-0 mb-3 w-30">
-            <input type="email" class="form-control" id="floatingPassword" placeholder="email@email.com" name="email"
-              required />
+            <input type="email" class="form-control" id="email_contato" placeholder="email@email.com" name="email"
+              required autocomplete="off"/>
             <label for="floatingPassword">Email</label>
           </div>
           <div class="form-floating p-0 mb-3 w-30">
-            <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+            <select class="form-select" id="assunto" aria-label="Floating label select example">
               <option selected>Selecione o assunto</option>
               <option value="1">SAC</option>
               <option value="2">Feedback</option>
@@ -205,14 +206,14 @@
         </div>
         <div class="row-gap-md-3">
           <div class="form-floating p-0 mb-3">
-            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" name="message"
+            <textarea class="form-control" placeholder="Leave a comment here" id="message_contato" name="message"
               style="height: 200px"></textarea>
             <label for="floatingTextarea2">Mensagem</label>
           </div>
         </div>
         <!-- Inicio do botão -->
         <div class="row-gap-md-3">
-          <button type="submit" class="btn btn-success" style="height: 60px; width: 150px">
+          <button type="submit" class="btn btn-success" onclick="sendContato()" style="height: 60px; width: 150px">
             Enviar
           </button>
         </div>
