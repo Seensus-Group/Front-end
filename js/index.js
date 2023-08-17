@@ -17,7 +17,6 @@ const txtDescricao = document.getElementById("txtDescricao");
 const btnEditar = document.getElementById("btnEditar");
 // Fim dos dados de editar
 
-
 // Inicio dos dados da barra de pesquisa
 const txtbuscar = document.getElementById("txtBuscar");
 const btnbuscar = document.getElementById("btnBuscar");
@@ -65,21 +64,21 @@ function login() {
         console.error(`Não foi possível requisitar a API -> ${error}`);
       });
   }
-};
+}
 // Fim da função de login
 
 // Incio abrir Shadow
 function showShadow() {
   document.getElementById("shadow").style.zIndex = "200";
   document.getElementById("shadow").style.opacity = "1";
-};
+}
 // fim do abrir Shadow
 
 // Inicio do fechar shadow
 function closedShadow() {
   document.getElementById("shadow").style.zIndex = "-100";
   document.getElementById("shadow").style.opacity = "0";
-};
+}
 // Fechar o shadow
 
 // Função da barra de pesquisa
@@ -219,7 +218,6 @@ function infoLojas() {
 }
 // Fim da função carregar o id da loja
 
-
 // Função carregar o id da loja e passa os dados
 function infoLojaEditar() {
   let url = window.location.search;
@@ -243,7 +241,7 @@ function infoLojaEditar() {
         document.getElementById("txtCep").value = item.cep;
         document.getElementById("txtLogradouro").value = item.logradouro;
         document.getElementById("txtDescricao").value = item.descricao;
-        let divList = document.createElement("div")
+        let divList = document.createElement("div");
         divList.innerHTML = `
         <div class="card m-3">
         <div class="row p-2">
@@ -279,10 +277,14 @@ function editar() {
   let url = window.location.search;
   let params = new URLSearchParams(url);
   let id = parseInt(params.get("pag"));
-  if (txtNome == "" || txtNome.value.trim() == "" || txtNome == null || txtPassword.value.trim() == "") {
+  if (
+    txtNome == "" ||
+    txtNome.value.trim() == "" ||
+    txtNome == null ||
+    txtPassword.value.trim() == ""
+  ) {
     alert("Erro ao atulizar os dados");
-  }
-  else {
+  } else {
     alert("atualizou os dados");
     window.location.reload(true);
     fetch(`http://127.0.0.1:5062/store/update/${id}`, {
@@ -306,7 +308,80 @@ function editar() {
 }
 // Fim do update
 
-// Inicio da função para mandar email
-function formEmail(){
+// Inicialização do EmailJS
+(function () {
+  emailjs.init("1ry49lNnL8dQyP1It");
+})();
+
+// Início da função para enviar email
+function sendEmail() {
+  let txtEmpresa = document.getElementById("company_form").value;
+  if (txtEmpresa == "" || txtEmpresa.value.trim() == "" || txtEmpresa == null) {
+    alert("Erro ao enviar os dados");
+  } else{
+  let categoria = document.getElementById("categoria_form").value;
+  let name_categoria = "";
+  switch (categoria) {
+    case "1":
+      name_categoria = "Assistência Técnica";
+      break;
+    case "2":
+      name_categoria = "TI e Hardware";
+      break;
+    case "3":
+      name_categoria = "Games";
+      break;
+    case "4":
+      name_categoria = "Eletrônicos";
+      break;
+    case "5":
+      name_categoria = "Para Casa";
+      break;
+    case "6":
+      name_categoria = "Móveis";
+      break;
+    case "7":
+      name_categoria = "Eletrodomésticos";
+      break;
+    case "8":
+      name_categoria = "Moda";
+      break;
+    case "9":
+      name_categoria = "Pets";
+      break;
+    case "10":
+      name_categoria = "Esportes";
+      break;
+    case "11":
+      name_categoria = "Automotivos";
+      break;
+    case "12":
+      name_categoria = "Construção e ferramentas";
+      break;
+  }
+
+  
+  var params = {
+    mensagem: document.getElementById("des_form").value,
+    name: document.getElementById("name_form").value,
+    empresa: txtEmpresa,
+    cnpj: document.getElementById("cnpj_form").value,
+    telefone: document.getElementById("tel_form").value,
+    categoria: name_categoria,
+    email: document.getElementById("email_Form").value,
+  };
+
+  const serviceID = "service_1u4tzto";
+  const templateID = "template_iumiumi";
+    emailjs.send(serviceID, templateID, params).then(
+      function (response) {
+        console.log("E-mail enviado com sucesso!", response);
+        window.location.replace("obrigado.html");
+      },
+      function (error) {
+        console.error("Erro ao enviar o e-mail:", error);
+      }
+    );
+  }
 }
 // Fim da função email

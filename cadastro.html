@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
     <title>Seensus | Cadastro</title>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 </head>
 
 <body>
@@ -182,54 +183,53 @@
     <main>
         <!-- Inicio do formulario de cadastro -->
         <div class="container-xxl pt-4 pb-4">
-            <form action="" class="card p-3" id="FormRecaptha">
+            <form onsubmit="return false" class="card p-3" id="Form_email">
                 <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="reCapthaEmail" placeholder="name@example.com">
+                    <input type="email" class="form-control" required autocomplete="off" id="email_Form" placeholder="name@example.com">
                     <label>Digite seu email</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="reCapthaNome" placeholder="Nome">
+                    <input type="text" class="form-control" requerid id="name_form" autocomplete="off" placeholder="Nome">
                     <label>Nome completo</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control"  id="reCapthaTelefone" placeholder="CNPJ">
+                    <input type="text" class="form-control" requerid id="tel_form" placeholder="CNPJ" autocomplete="off">
                     <label>Número de telefone</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="reCapthaCnpj" placeholder="CNPJ">
+                    <input type="text" class="form-control" requerid id="cnpj_form" placeholder="CNPJ" autocomplete="off">
                     <label>CNPJ</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="reCapthaEmpresa" placeholder="CNPJ">
+                    <input type="text" class="form-control" requerid id="company_form" placeholder="CNPJ" autocomplete="off">
                     <label>Nome da empresa</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <select class="form-select" aria-label="Selecione a categoria da loja" id="reCapthaCategoria">
+                    <select class="form-select" aria-label="Selecione a categoria da loja" required id="categoria_form">
                         <option selected>Selecione a categoria</option>
                         <option value="1">Assistência Técnica</option>
                         <option value="2">TI e Hardware</option>
                         <option value="3">Games</option>
-                        <option value="4">TI e Hardware</option>
-                        <option value="5">Eletrônicos</option>
-                        <option value="6">Eletrodomésticos</option>
-                        <option value="7">Para Casa</option>
-                        <option value="8">Móveis</option>
-                        <option value="9">Moda</option>
-                        <option value="10">Pets</option>
-                        <option value="11">Esportes</option>
-                        <option value="12">Automotivos</option>
-                        <option value="13">Construção e ferramentas</option>
+                        <option value="4">Eletrônicos</option>
+                        <option value="5">Eletrodomésticos</option>
+                        <option value="6">Para Casa</option>
+                        <option value="7">Móveis</option>
+                        <option value="8">Moda</option>
+                        <option value="9">Pets</option>
+                        <option value="10">Esportes</option>
+                        <option value="11">Automotivos</option>
+                        <option value="12">Construção e ferramentas</option>
                     </select>
                     <label for="floatingSelect">Selecione apenas uma categoria</label>
                 </div>
 
                 <div class="form-floating mb-3">
-                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
-                        style="height: 100px" id="reCapthaDescricao"></textarea>
+                    <textarea class="form-control" placeholder="Leave a comment here" requerid id="des_form"
+                        style="height: 100px" autocomplete="off"></textarea>
                     <label for="floatingTextarea2">Descreva sua loja</label>
                 </div>
-
-                <button type="submit" class="btn btn-outline-success ms-auto" id="enviarEmail">Enviar solicitação</button>
+                <button type="submit" class="btn btn-outline-success ms-auto" onclick="sendEmail()" >Enviar
+                    solicitação</button>
             </form>
         </div>
         <!-- Fim do formulario de cadastro -->
