@@ -108,13 +108,13 @@ function carregarDados() {
     .then((result) => {
       result.data.map((item, index) => {
         let divList = document.createElement("div");
-        divList.style.height = "150px";
+        divList.style.height = "100%";
         divList.setAttribute("class", "card m-3");
         divList.innerHTML = `
                 <a href="lojas.html?pag=${item.idloja}" class="nav-link">
                 <div class="row">
                     <div class="col-md-4">
-                        <img src="${item.foto}" class="img-fluid rounded" style="height: 150px;width:400px;object-fit:contain" alt="...">
+                        <img src="${item.foto}" class="img-fluid rounded" style="object-fit:cover;height:200px;width: 100%;" alt="...">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body ">
@@ -153,13 +153,13 @@ function carregarCategoria() {
     .then((result) => {
       result.data.map((item, index) => {
         let divList = document.createElement("div");
-        divList.style.height = "150px";
+        divList.style.height = "100%";
         divList.setAttribute("class", "card m-3");
         divList.innerHTML = `
             <a href="lojas.html?pag=${item.idloja}" class="nav-link">
                 <div class="row">
                     <div class="col-md-4">
-                        <img src="${item.foto}" class="img-fluid rounded" style="height: 150px;width:400px;object-fit:contain" alt="...">
+                        <img src="${item.foto}" class="img-fluid rounded" style="object-fit:cover;height:200px;width: 100%;" alt="...">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
@@ -196,10 +196,10 @@ function infoLojas() {
         divList.innerHTML = `
             <div class="card m-3">
                 <div class="row p-2">
-                    <div class="col">
-                        <img src="${item.foto}" class="img-fluid rounded" style="height: 200px;width:400px;object-fit:contain" alt="...">
+                    <div class="col-md">
+                        <img src="${item.foto}" class="img-fluid rounded" alt="...">
                     </div>
-                    <div class="col-8">
+                    <div class="col-md-8">
                         <div class="card-body">
                             <h5 class="card-title text-center">${item.nome}</h5>
                             <p class="card-text"><strong>Sobre a loja: </strong>${item.descricao}</p>
@@ -246,7 +246,7 @@ function infoLojaEditar() {
         <div class="card m-3">
         <div class="row p-2">
             <div class="col-md-4">
-                <img src="${item.foto}" class="img-fluid rounded" style="height: 200px;width:400px;object-fit:contain" alt="...">
+                <img src="${item.foto}" class="img-fluid rounded" alt="...">
             </div>
             <div class="col-md-8">
                 <div class="card-body">
