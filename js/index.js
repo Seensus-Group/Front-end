@@ -465,44 +465,44 @@ function sendContato(){
   if (txtEmpresa == "" || txtEmpresa.value.trim() == "" || txtEmpresa == null) {
     alert("Erro ao enviar os dados");
   } else{
-  let categoria = document.getElementById("categoria_form").value;
-  let name_categoria = "";
-  switch (categoria) {
+  let assunto = document.getElementById("assunto").value;
+  let name_assunto = "";
+  switch (assunto) {
     case "1":
-      name_categoria = "Assistência Técnica";
+      name_assunto = "Assistência Técnica";
       break;
     case "2":
-      name_categoria = "TI e Hardware";
+      name_assunto = "TI e Hardware";
       break;
     case "3":
-      name_categoria = "Games";
+      name_assunto = "Games";
       break;
     case "4":
-      name_categoria = "Eletrônicos";
+      name_assunto = "Eletrônicos";
       break;
     case "5":
-      name_categoria = "Para Casa";
+      name_assunto = "Para Casa";
       break;
     case "6":
-      name_categoria = "Móveis";
+      name_assunto = "Móveis";
       break;
     case "7":
-      name_categoria = "Eletrodomésticos";
+      name_assunto = "Eletrodomésticos";
       break;
     case "8":
-      name_categoria = "Moda";
+      name_assunto = "Moda";
       break;
     case "9":
-      name_categoria = "Pets";
+      name_assunto = "Pets";
       break;
     case "10":
-      name_categoria = "Esportes";
+      name_assunto = "Esportes";
       break;
     case "11":
-      name_categoria = "Automotivos";
+      name_assunto = "Automotivos";
       break;
     case "12":
-      name_categoria = "Construção e ferramentas";
+      name_assunto = "Construção e ferramentas";
       break;
   }
 
