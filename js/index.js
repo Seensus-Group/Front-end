@@ -385,3 +385,149 @@ function sendEmail() {
   }
 }
 // Fim da função email
+
+// Início da função para enviar email
+function sendEmail() {
+  let txtEmpresa = document.getElementById("company_form").value;
+  if (txtEmpresa == "" || txtEmpresa.value.trim() == "" || txtEmpresa == null) {
+    alert("Erro ao enviar os dados");
+  } else{
+  let categoria = document.getElementById("categoria_form").value;
+  let name_categoria = "";
+  switch (categoria) {
+    case "1":
+      name_categoria = "Assistência Técnica";
+      break;
+    case "2":
+      name_categoria = "TI e Hardware";
+      break;
+    case "3":
+      name_categoria = "Games";
+      break;
+    case "4":
+      name_categoria = "Eletrônicos";
+      break;
+    case "5":
+      name_categoria = "Para Casa";
+      break;
+    case "6":
+      name_categoria = "Móveis";
+      break;
+    case "7":
+      name_categoria = "Eletrodomésticos";
+      break;
+    case "8":
+      name_categoria = "Moda";
+      break;
+    case "9":
+      name_categoria = "Pets";
+      break;
+    case "10":
+      name_categoria = "Esportes";
+      break;
+    case "11":
+      name_categoria = "Automotivos";
+      break;
+    case "12":
+      name_categoria = "Construção e ferramentas";
+      break;
+  }
+
+  
+  var params = {
+    mensagem: document.getElementById("des_form").value,
+    name: document.getElementById("name_form").value,
+    empresa: txtEmpresa,
+    cnpj: document.getElementById("cnpj_form").value,
+    telefone: document.getElementById("tel_form").value,
+    categoria: name_categoria,
+    email: document.getElementById("email_Form").value,
+  };
+
+  let serviceID = "service_1u4tzto";
+  let templateID = "template_iumiumi";
+    emailjs.send(serviceID, templateID, params).then(
+      function (response) {
+        console.log("E-mail enviado com sucesso!", response);
+        window.location.replace("obrigado.html");
+      },
+      function (error) {
+        console.error("Erro ao enviar o e-mail:", error);
+      }
+    );
+  }
+}
+// Fim da função email
+
+// Início da função de contato
+function sendContato(){
+  let txtEmailContato = document.getElementById("txtEmailContato").value;
+  if (txtEmpresa == "" || txtEmpresa.value.trim() == "" || txtEmpresa == null) {
+    alert("Erro ao enviar os dados");
+  } else{
+  let categoria = document.getElementById("categoria_form").value;
+  let name_categoria = "";
+  switch (categoria) {
+    case "1":
+      name_categoria = "Assistência Técnica";
+      break;
+    case "2":
+      name_categoria = "TI e Hardware";
+      break;
+    case "3":
+      name_categoria = "Games";
+      break;
+    case "4":
+      name_categoria = "Eletrônicos";
+      break;
+    case "5":
+      name_categoria = "Para Casa";
+      break;
+    case "6":
+      name_categoria = "Móveis";
+      break;
+    case "7":
+      name_categoria = "Eletrodomésticos";
+      break;
+    case "8":
+      name_categoria = "Moda";
+      break;
+    case "9":
+      name_categoria = "Pets";
+      break;
+    case "10":
+      name_categoria = "Esportes";
+      break;
+    case "11":
+      name_categoria = "Automotivos";
+      break;
+    case "12":
+      name_categoria = "Construção e ferramentas";
+      break;
+  }
+
+  
+  var params = {
+    mensagem: document.getElementById("des_form").value,
+    name: document.getElementById("name_form").value,
+    empresa: txtEmpresa,
+    cnpj: document.getElementById("cnpj_form").value,
+    telefone: document.getElementById("tel_form").value,
+    categoria: name_categoria,
+    email: document.getElementById("email_Form").value,
+  };
+
+  const serviceID = "service_1u4tzto";
+  const templateID = "template_flqohf5";
+    emailjs.send(serviceID, templateID, params).then(
+      function (response) {
+        console.log("E-mail enviado com sucesso!", response);
+        window.location.replace("obrigado.html");
+      },
+      function (error) {
+        console.error("Erro ao enviar o e-mail:", error);
+      }
+    );
+  }
+}
+// Fim da função de contato
