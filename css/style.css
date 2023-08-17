@@ -363,6 +363,97 @@ footer a:hover {
 /* Fim do footer */
 
 
+/* Inicio do css Editar responsivo */
+@media screen and (max-width: 850px) {
+    #shadow #editar_form {
+        background-color: var(--color-branco);
+        width: 500px;
+        padding: 30px 20px;
+        border-radius: 10px;
+    }
+    
+    #editar_form #texto_cima {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    
+    #texto_cima h1{
+        font-size: 25px;
+        font-weight: 400;
+        font-style: initial;
+    }
+    
+    #texto_cima a {
+        color: #000000;
+        text-decoration: none;
+    }
+    
+    #inputs_editar {
+        display: flex;
+        /* align-items: center; */
+        justify-content: center;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    #inputs_editar .input label {
+        font-size: 18px;
+        color: var(--color-preto);
+        margin-left: 20px;
+    }
+    
+    .input-editar {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 3px;
+        cursor: text;
+        width: 44vh;
+        margin-left: 20px;
+        border-bottom: 1px solid var(--color-azul-escuro);
+    }
+    
+    .input-editar input {
+        border: none;
+        width: 100%;
+        background-color: transparent;
+        font-size: 16px;
+    }
+    
+    .input-editar input:focus {
+        outline: none;
+    }
+    
+    .row-input {
+        display: flex;
+    }
+    
+    #descricao textarea{
+        width: 93%;
+        margin: 0px 20px;
+        border: 1px solid var(--color-azul-escuro);
+        border-radius: 5px;
+        height: 100px;
+    }
+    
+    #descricao textarea:focus{
+        outline: none;
+    }
+    
+    #botao_editar {
+        text-align: center;
+        align-items: center;
+        justify-items: center;
+        flex-direction: column;
+        margin-top: 10px;
+        margin-bottom: -10px;
+    }
+}
+/* Fim do css do Editar */
+
+
 @media screen and (min-width: 993px) {
     .dropdown .dropdown-menu .show:focus {
         display: none !important;

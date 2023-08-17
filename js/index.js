@@ -278,15 +278,15 @@ function editar() {
   let params = new URLSearchParams(url);
   let id = parseInt(params.get("pag"));
   if (
-    txtNome == "" ||
     txtNome.value.trim() == "" ||
-    txtNome == null ||
+    txtCep.value.trim() == "" ||
+    txtNumero.value.trim() == "" ||
+    txtLogradouro.value.trim() == "" ||
     txtPassword.value.trim() == ""
   ) {
     alert("Erro ao atulizar os dados");
   } else {
     alert("atualizou os dados");
-    window.location.reload(true);
     fetch(`http://127.0.0.1:5062/store/update/${id}`, {
       method: "PUT",
       headers: {
@@ -303,7 +303,11 @@ function editar() {
         senha: txtPassword.value,
         descricao: txtDescricao.value,
       }),
-    }).then.catch((error) => console.log(`Erro ao executar API -> ${error}`));
+    }).then((dado)=>{
+      window.location.reload();
+    })
+    .then.catch((error) => console.log(`Erro ao executar API -> ${error}`));
+    
   }
 }
 // Fim do update
