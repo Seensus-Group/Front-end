@@ -445,3 +445,8 @@ function sendContato() {
     }
 }
 // Fim da função de contato
+
+// Inicio da função realod
+function realod(){
+  window.location.reload();
+}

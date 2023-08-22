@@ -49,6 +49,9 @@ header img {
     height: 50px;
 }
 
+#area-exclusiva{
+    cursor: pointer;
+}
 /* Fim do header */
 
 /* Inicio do main */
